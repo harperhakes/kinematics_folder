@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinematics Calculators</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>PhysiCalc</h1>
+        <p>Free Online Physics Calculator</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/calculators">Calculators</a></li>
+            <li><a href="/">About Us</a></li>
+            <li><a href="/">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Equation 1: Final Velocity (v = v₀ + at)</h2>
+            <form action="/calculate1" method="post">
+                <div class="input-group">
+                    <label for="v0_1">Initial velocity (v₀):</label>
+                    <input type="number" id="v0_1" name="v0" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="a_1">Acceleration (a):</label>
+                    <input type="number" id="a_1" name="a" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="t_1">Time (t):</label>
+                    <input type="number" id="t_1" name="t" step="any" required>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
+            {% if v1 is defined %}
+            <div class="results">
+                <h2>Result: v = {{ v1 }}</h2>
+            </div>
+            {% endif %}
+        </section>
+
+        <section>
+            <h2>Equation 2: Displacement (Δx = (v + v₀) / 2 * t)</h2>
+            <form action="/calculate2" method="post">
+                <div class="input-group">
+                    <label for="v0_2">Initial velocity (v₀):</label>
+                    <input type="number" id="v0_2" name="v0" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="v_2">Final velocity (v):</label>
+                    <input type="number" id="v_2" name="v" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="t_2">Time (t):</label>
+                    <input type="number" id="t_2" name="t" step="any" required>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
+            {% if dx1 is defined %}
+            <div class="results">
+                <h2>Result: Δx = {{ dx1 }}</h2>
+            </div>
+            {% endif %}
+        </section>
+
+        <section>
+            <h2>Equation 3: Displacement (Δx = v₀t + ½at²)</h2>
+            <form action="/calculate3" method="post">
+                <div class="input-group">
+                    <label for="v0_3">Initial velocity (v₀):</label>
+                    <input type="number" id="v0_3" name="v0" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="a_3">Acceleration (a):</label>
+                    <input type="number" id="a_3" name="a" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="t_3">Time (t):</label>
+                    <input type="number" id="t_3" name="t" step="any" required>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
+            {% if dx2 is defined %}
+            <div class="results">
+                <h2>Result: Δx = {{ dx2 }}</h2>
+            </div>
+            {% endif %}
+        </section>
+
+        <section>
+            <h2>Equation 4: Final Velocity Squared (v² = v₀² + 2aΔx)</h2>
+            <form action="/calculate4" method="post">
+                <div class="input-group">
+                    <label for="v0_4">Initial velocity (v₀):</label>
+                    <input type="number" id="v0_4" name="v0" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="a_4">Acceleration (a):</label>
+                    <input type="number" id="a_4" name="a" step="any" required>
+                </div>
+                <div class="input-group">
+                    <label for="dx_4">Displacement (Δx):</label>
+                    <input type="number" id="dx_4" name="dx" step="any" required>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
+            {% if v2 is defined %}
+            <div class="results">
+                <h2>Result: v² = {{ v2 }}</h2>
+            </div>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 PhysiCalc. All rights reserved.</p>
+    </footer>
+</body>
+</html>
